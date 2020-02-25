@@ -1,0 +1,166 @@
+{
+	"variables": [],
+	"info": {
+		"name": "todolistcolection",
+		"_postman_id": "e74c05fd-806a-5083-7b51-908e5869d17e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all todo lists",
+			"request": {
+				"url": "http://{{host}}/todolists",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get a single to do list",
+			"request": {
+				"url": "http://{{host}}/todolists/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add a new list",
+			"request": {
+				"url": "http://{{host}}/todolists",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"some name\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "edit a todo list",
+			"request": {
+				"url": "http://{{host}}/todolists/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\" : 1,\n\t\"name\" : \"some other name\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete a todo list",
+			"request": {
+				"url": "http://{{host}}/todolists/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get all tasks for a todo list",
+			"request": {
+				"url": "http://{{host}}/todolists/1/tasks",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "add a task to todo list",
+			"request": {
+				"url": "http://{{host}}/todolists/2/tasks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\" : \"some description\",\n\t\"status\" : \"TODO\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "get a task for a list",
+			"request": {
+				"url": "http://{{host}}/todolists/1/tasks/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "modify a task in a list",
+			"request": {
+				"url": "http://{{host}}/todolists/1/tasks/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"description\": \"some other description\",\n    \"status\": \"DONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete a task in a list",
+			"request": {
+				"url": "http://{{host}}/todolists/1/tasks/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
