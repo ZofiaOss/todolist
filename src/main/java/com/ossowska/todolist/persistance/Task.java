@@ -1,6 +1,7 @@
 package com.ossowska.todolist.persistance;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Task {
@@ -13,10 +14,11 @@ public class Task {
     private Status status;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "todoListId", nullable = false)
+    @JoinColumn(name = "todoListId", nullable = true)
     private TodoList todoList;
 
-
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Task> subTasks;
 
     private enum Status{
         DONE, TODO
@@ -52,5 +54,13 @@ public class Task {
 
     public void setTodoList(TodoList todoList) {
         this.todoList = todoList;
+    }
+
+    public List<Task> getSubTasks() {
+        return subTasks;
+    }
+
+    public void setSubTasks(List<Task> subTasks) {
+        this.subTasks = subTasks;
     }
 }

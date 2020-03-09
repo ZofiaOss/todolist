@@ -80,6 +80,12 @@ public class TodoListController {
     @DeleteMapping("/{id}/tasks/{taskId}")
     public void deleteTask(@PathVariable("id") Long id, @PathVariable("taskId") Long taskId) {
         taskDao.deleteByListIdAndId(id, taskId);
+    }
 
+    @PostMapping("/tasks/{id}")
+    public void addSubtask(@PathVariable("id") Long id, @RequestBody Task task) {
+        Task dbParentObject = taskDao.getOne(id);
+        dbParentObject.getSubTasks().add(task);
+        taskDao.save(dbParentObject);
     }
 }

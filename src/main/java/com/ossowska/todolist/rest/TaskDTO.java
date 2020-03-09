@@ -2,6 +2,9 @@ package com.ossowska.todolist.rest;
 
 import com.ossowska.todolist.persistance.Task;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class TaskDTO {
 
     private Long id;
@@ -13,8 +16,12 @@ public class TaskDTO {
         result.id = task.getId();
         result.description = task.getDescription();
         result.status = String.valueOf(task.getStatus());
+        List<TaskDTO> subtasks = task.getSubTasks().stream().map(a -> fromTask(a)).collect(Collectors.toList()):
+        result.subtasks = subtasks;
         return result;
     }
+
+    private List<TaskDTO> subtasks;
 
     public Long getId() {
         return id;
