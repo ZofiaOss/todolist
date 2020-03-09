@@ -16,7 +16,7 @@ public class TaskDTO {
         result.id = task.getId();
         result.description = task.getDescription();
         result.status = String.valueOf(task.getStatus());
-        List<TaskDTO> subtasks = task.getSubTasks().stream().map(a -> fromTask(a)).collect(Collectors.toList()):
+        List<TaskDTO> subtasks = task.getSubTasks().stream().map(a -> fromTask(a)).collect(Collectors.toList());
         result.subtasks = subtasks;
         return result;
     }
